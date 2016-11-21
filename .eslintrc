@@ -1,0 +1,15 @@
+---
+"extends":
+  - "eslint-config-defaults/configurations/walmart/es6-react"
+
+"rules":
+  "quotes": [2, "single"]
+  "comma-dangle": [2, "always-multiline"]
+  "indent": [2, 2, {"SwitchCase": 1}]
+  "max-len": 0
+  "eqeqeq": 0
+  "func-style": 0 
+
+"env":
+  "browser": true,
+  "node": true

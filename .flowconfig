@@ -1,0 +1,14 @@
+[ignore]
+.*node_modules/radium/.*
+
+[include]
+
+[libs]
+flow-typed
+
+[options]
+
+module.name_mapper='^!!raw!.*$' -> '<PROJECT_ROOT>/scripts/rawStub.js'
+
+# Used by js-csp
+suppress_comment=\\(.\\|\n\\)*\\flow-ignore

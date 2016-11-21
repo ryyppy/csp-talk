@@ -1,0 +1,19 @@
+function findConfig(cwd: string, fname: string): Promise<?string> {
+  // ...
+}
+
+function parseConfig(fpath: string): Promise<Config> {
+  return yaml.parse(fpath);
+}
+
+function authUser(username: string, password: string): Promise<string> {
+  // ...
+}
+
+function querySites(accessToken, sitegroup) {
+  // ...
+}
+
+function renderSites(sites: [Site]): void {
+  sites.forEach(site => console.log(site.name));
+}

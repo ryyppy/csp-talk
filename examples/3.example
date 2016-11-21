@@ -1,0 +1,20 @@
+async function listSites(cwd: string) {
+  try {
+    const config = await findConfig(cwd, 'amazeeio.yml').then(parseConfig);
+
+    const {
+      username,
+      password,
+      sitegroup,
+    } = config;
+
+    const accessToken = await authUser(username, password);
+
+    const sites = await querySites(accessToken, sitegroup);
+
+    renderSites(sites);
+  } catch(e) {
+    console.error('Some error occurred:')
+    console.error(e);
+  }
+}

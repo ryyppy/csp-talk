@@ -1,0 +1,18 @@
+function listSites(cwd: string) {
+  const configPromise = 
+    findConfig(cwd, 'amazeeio.yml')
+    .then(parseConfig);
+
+  const authPromise =
+    configPromise.then(config => {
+      const { username, password } = config;
+      return authUser(username, password);
+    });
+
+
+  return Promise.all([configPromise, authPromise]
+    .then(([ config, accessToken])=> {
+      const { sitegroup } = config;
+      return querySites(accessToken, sitegroup); 
+    });
+}

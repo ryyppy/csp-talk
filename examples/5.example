@@ -1,0 +1,31 @@
+// I don't even bother do this properly :-)
+class ConfigError extends Error {}
+class AuthError extends Error {}
+
+async function listSites(cwd: string) {
+  try {
+    const config = await findConfig(cwd, 'amazeeio.yml').then(parseConfig);
+
+    const {
+      username,
+      password,
+      sitegroup,
+    } = config;
+
+    const accessToken = await authUser(username, password);
+
+    const sites = await querySites(accessToken, sitegroup);
+
+    renderSites(sites);
+  } catch(e) {
+    if (e instanceof ConfigError) {
+      console.error('Configuration error occurred:');
+      console.error(e);
+    }
+    else if(e instanceof AuthError) {
+      console.error('Auth error occurred:');
+      console.error(e);
+    }
+    // ...
+  }
+}
