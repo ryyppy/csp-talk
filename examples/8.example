@@ -1,0 +1,21 @@
+function findConfig(cwd: string, fname: string): Channel {
+  // ...
+}
+
+function parseConfig(fpath: string): Channel {
+  const ch = chan(); 
+  yaml.parse(fpath).then(value => putAsync(ch, value));
+  return ch;
+}
+
+function authUser(username: string, password: string): Channel {
+  // ...
+}
+
+function querySites(accessToken, sitegroup): Channel {
+  // ...
+}
+
+function renderSites(sites: [Site]): void {
+  sites.forEach(site => console.log(site.name));
+}

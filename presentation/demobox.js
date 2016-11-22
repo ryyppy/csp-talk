@@ -34,7 +34,10 @@ export default class DemoBox extends React.Component {
     const reset = () => this.setState({result: []});
 
     const addLine = (line: string): void => {
-      const result = (this.state.result == null ? [line] : this.state.result.concat(line));
+      const result = (
+        this.state.result == null ? [line] : 
+        this.state.result.concat(line)
+      );
       this.setState({ ...this.state, result });
     };
 

@@ -1,0 +1,15 @@
+import { go, chan, take, CLOSED } from 'js-csp';
+
+function listSites(cwd: string): Channel {
+  return go(function* () {
+    const configPath = yield findConfig(cwd, 'amazeeio.yml');
+    const config = yield parseConfig(configPath);
+
+    const { username, password, sitegroup } = config;
+    const accessToken = yield authUser(username, password);
+
+    const sites = yield querySites(accessToken, sitegroup);
+
+    sites.forEach(site => console.log(site.name));
+  });
+}

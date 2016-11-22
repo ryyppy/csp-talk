@@ -1,0 +1,34 @@
+import {
+  takeAsync,
+  chan,
+  put,
+  take,
+  go,
+  CLOSED,
+} from 'js-csp';
+
+const myChan = chan();
+
+const routine = go(function* () {
+  let value;
+  while((value = yield take(myChan)) !== CLOSED) {
+    console.log(`Got: ${value}`);
+  }
+
+  return 'end';
+});
+
+go(function* () {
+  yield put(myChan, 'first');
+  yield put(myChan, 'second');
+  yield put(myChan, 'third');
+
+  myChan.close();
+});
+
+takeAsync(routine, (ret) => console.log(ret));
+
+// Got: first
+// Got: second
+// Got: third
+// end

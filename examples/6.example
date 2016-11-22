@@ -1,0 +1,12 @@
+import { chan, putAsync, takeAsync } from 'js-csp';
+
+const myChan = chan();
+
+takeAsync(myChan, (value) => console.log(`Got 1: ${value}`));
+takeAsync(myChan, (value) => console.log(`Got 2: ${value}`));
+
+putAsync(myChan, 'Test');
+putAsync(myChan, 'Bar');
+
+// Got 1: Test
+// Got 2: Bar
