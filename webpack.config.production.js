@@ -5,15 +5,13 @@ var webpack = require("webpack");
 
 module.exports = {
   entry: [
-    "webpack-hot-middleware/client",
     "babel-polyfill",
-    "./examples/index",
     "./index"
   ],
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.join(__dirname, "docs"),
     filename: "bundle.js",
-    publicPath: "/dist/"
+    publicPath: "/"
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
