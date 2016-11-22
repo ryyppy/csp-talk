@@ -8,7 +8,7 @@ to put in some references, which will probably answer those questions:
 
 **Articles:**
 
-* ["Taming the Asynchronous heast with CSP in JavaScript" by James Longs](http://jlongster.com/Taming-the-Asynchronous-Beast-with-CSP-in-JavaScript)
+* ["Taming the Asynchronous heast with CSP in JavaScript" by James Long](http://jlongster.com/Taming-the-Asynchronous-Beast-with-CSP-in-JavaScript)
 * ["ES6 Generators Deliver Go Style Concurrency" by David Nolen](http://swannodette.github.io/2013/08/24/es6-generators-and-csp)
 * ["Communicatiting Sequential Processes" by David Nolen](http://swannodette.github.io/2013/07/12/communicating-sequential-processes)
 * ["Make no Promises" by David Nolen](http://swannodette.github.io/2013/08/23/make-no-promises)
