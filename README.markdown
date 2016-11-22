@@ -33,3 +33,5 @@ npm start
 ```
 
 Then you can access the presentation on `http://localhost:3000`
+
+To publish, run `npm run build`. If you are hosting this on github, you can commit the files under `docs/` and visit https://[user].github.io/[repository] after enabling github pages under docs/ in the repository settings. Otherwise, copy the contents of `docs/` to where they need to go. You might have to adjust `publicPath` in the webpack config.
